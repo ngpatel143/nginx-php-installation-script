@@ -22,7 +22,7 @@ service nginx restart
 ifconfig eth0 | grep inet | awk '{ print $2 }'
 
 # install php5-fpm 
-apt-get install php5-fpm
+apt-get install php5-fpm php5-cli
 
 service php5-fpm restart
 
