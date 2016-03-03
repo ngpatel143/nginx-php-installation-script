@@ -67,5 +67,7 @@ service mongod start
 
 #Mongodb is the port configured in /etc/mongod.conf, 27017 by default.
 
+#install composer
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 
