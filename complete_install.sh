@@ -3,7 +3,7 @@
 apt-get update
 
 # mysql installing...
-apt-get install mysql-server php5-mysql
+apt-get install mariadb-server php5-mysql
 
 #activate mysql..
 mysql_install_db
@@ -43,29 +43,13 @@ service nginx restart
 apt-get install git
 
 #Installing Node.js on a VPS
-curl https://raw.githubusercontent.com/creationix/nvm/v0.11.1/install.sh | bash
-
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev
+curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
 source ~/.profile
+nvm install stable
+nvm use default
 
-# install mongodb
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-nvm install 0.10.13
-nvm use v0.10.13
-n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
-
-npm install -g grunt-cli
-
-#Reload local package database.
-apt-get update
-
-#Install the latest stable version of MongoDB
-apt-get install -y mongodb-org
-
-service mongod start
-
-#Mongodb is the port configured in /etc/mongod.conf, 27017 by default.
 
 #install composer
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
@@ -83,3 +67,25 @@ sudo ./install_server.sh
 
 sudo service redis_6379 start
 sudo service redis_6379 stop
+
+
+
+# install mongodb
+# apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+#echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+#nvm install 0.10.13
+#nvm use v0.10.13
+#n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
+
+#npm install -g grunt-cli
+
+#Reload local package database.
+#apt-get update
+
+#Install the latest stable version of MongoDB
+#apt-get install -y mongodb-org
+
+#service mongod start
+
+#Mongodb is the port configured in /etc/mongod.conf, 27017 by default.
