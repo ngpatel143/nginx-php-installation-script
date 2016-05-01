@@ -2,8 +2,12 @@
 # apt-get update running...
 apt-get update
 
+# php install
+apt-get update && apt-get purge php5-fpm && apt-get --purge autoremove && apt-get install php7.0 php7.0-fpm php7.0-mysql php7.0-curl php7.0-gd php7.0-json php7.0-mcrypt php7.0-opcache php7.0-xml php7.0-curl php7.0-cli
+
 # mysql installing...
-apt-get install mariadb-server php5-mysql
+apt-get install mariadb-server
+
 
 #activate mysql..
 mysql_install_db
@@ -21,14 +25,7 @@ service nginx restart
 # reveal your VPS's IP address.
 ifconfig eth0 | grep inet | awk '{ print $2 }'
 
-# install php5-fpm 
-apt-get install php5-fpm php5-cli
-
-service php5-fpm restart
-
-# install php5-curl
-apt-get install php5-curl
-service php5-fpm restart
+service php7.0-fpm restart
 
 # ReStart nginx
 service nginx restart
